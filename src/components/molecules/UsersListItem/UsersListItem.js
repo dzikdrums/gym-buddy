@@ -10,9 +10,7 @@ const UsersListItem = ({ userData: { name, average, attendance } }) => (
       <AverageNumber average={average} />
       <div className={'user-details'}>
         <p className={'name'}>{name}</p>
-        <p classN ame={'attendance'}>
-          attendance: {attendance}%
-        </p>
+        <p className={'attendance'}>attendance: {attendance}%</p>
       </div>
       <Button isSecondary>
         <DeleteIcon />
