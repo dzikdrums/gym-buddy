@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
 import { users } from 'data/users';
-import FormField from '../../atoms/FormField/FormField';
-import Segment from '../../atoms/Segment/Segment';
+import FormField from '../components/atoms/FormField/FormField';
+import Segment from '../components/atoms/Segment/Segment';
 
-const UsersList = () => {
+const Dashboard = () => {
   const [usersList, setUsersList] = useState([]);
 
   const mockApiCall = () => {
@@ -31,4 +31,4 @@ const UsersList = () => {
   );
 };
 
-export default UsersList;
+export default Dashboard;

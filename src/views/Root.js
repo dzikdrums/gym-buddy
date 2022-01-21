@@ -1,11 +1,12 @@
-import UsersList from 'components/organisms/UsersList/UsersList';
+import Dashboard from 'views/Dashboard';
 import { GlobalStyle } from 'assets/styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'assets/styles/theme';
 import { StyledRoot } from './Root.styles';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import AddUserForm from '../components/organisms/AddUserForm/AddUserForm';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import AddUser from './AddUser';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainTemplate from '../components/templates/MainTemplate/MainTemplate';
 
 const Root = () => (
   <HelmetProvider>
@@ -17,14 +18,14 @@ const Root = () => (
       </Helmet>
       <Router>
         <GlobalStyle />
-        <StyledRoot>
-          <Link to={'/'}>UsersList</Link>
-          <Link to={'/addUser'}>Add User</Link>
-          <Routes>
-            <Route path={'addUser'} element={<AddUserForm />} />
-            <Route path={'/'} element={<UsersList />} />
-          </Routes>
-        </StyledRoot>
+        <MainTemplate>
+          <StyledRoot>
+            <Routes>
+              <Route path={'addUser'} element={<AddUser />} />
+              <Route path={'/'} element={<Dashboard />} />
+            </Routes>
+          </StyledRoot>
+        </MainTemplate>
       </Router>
     </ThemeProvider>
   </HelmetProvider>

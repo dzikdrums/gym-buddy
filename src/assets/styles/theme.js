@@ -6,6 +6,7 @@ export const theme = {
     darkGrey: '#737c8e',
     lightPurple: '#ECEFF7',
     purple: '#C0C7D6',
+    darkPurple: '#DFE2E8',
     black: '#111111',
     success: '#8FCB81',
     error: '#CB8581',

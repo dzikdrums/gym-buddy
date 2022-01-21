@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import FormField from '../../atoms/FormField/FormField';
-import Segment from '../../atoms/Segment/Segment';
-import Button from '../../atoms/Buttons/Button/Button';
+import FormField from '../components/atoms/FormField/FormField';
+import Segment from '../components/atoms/Segment/Segment';
+import Button from '../components/atoms/Buttons/Button/Button';
 import styled from 'styled-components';
 
 const StyledAddUserForm = styled.div`
@@ -11,7 +11,7 @@ const StyledAddUserForm = styled.div`
   width: 50%;
 `;
 
-const AddUserForm = () => {
+const AddUser = () => {
   const [formValues, setFormValues] = useState({
     name: '',
     attendance: '',
@@ -44,4 +44,4 @@ const AddUserForm = () => {
   );
 };
 
-export default AddUserForm;
+export default AddUser;
