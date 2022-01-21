@@ -12,7 +12,7 @@ export const StyledUsersListItem = styled.div`
 
     .user-details {
       margin-left: 24px;
-      color: ${theme.color.darkgrey};
+      color: ${theme.color.darkGrey};
     }
 
     .name {

@@ -1,9 +1,8 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Label = styled.label`
   ${({ theme }) => css`
-    color: ${theme.color.darkgrey};
+    color: ${theme.color.darkGrey};
     font-size: ${theme.fontSize.m};
     font-weight: ${theme.fontWeight.bold};
     text-transform: capitalize;

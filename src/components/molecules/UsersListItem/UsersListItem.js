@@ -1,6 +1,6 @@
 import React from 'react';
 import AverageNumber from '../../atoms/AverageNumber/AverageNumber';
-import Button from '../../atoms/Button/Button';
+import IconButton from '../../atoms/Buttons/IconButton/IconButton';
 import { ReactComponent as DeleteIcon } from 'assets/delete-icon.svg';
 import { StyledUsersListItem } from './UsersListItem.styles';
 
@@ -12,9 +12,9 @@ const UsersListItem = ({ userData: { name, average, attendance } }) => (
         <p className={'name'}>{name}</p>
         <p className={'attendance'}>attendance: {attendance}%</p>
       </div>
-      <Button isSecondary>
+      <IconButton isSecondary>
         <DeleteIcon />
-      </Button>
+      </IconButton>
     </StyledUsersListItem>
   </>
 );

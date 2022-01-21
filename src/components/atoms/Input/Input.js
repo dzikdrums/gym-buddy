@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Input = styled.input`
@@ -7,7 +6,7 @@ const Input = styled.input`
     border: ${`1px solid ${theme.color.grey}`};
     box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
     padding: 0.5rem 1rem;
-    color: ${theme.color.darkgrey};
+    color: ${theme.color.darkGrey};
     transition: box-shadow 0.05s ease-in-out;
     will-change: box-shadow;
     margin-bottom: 17px;

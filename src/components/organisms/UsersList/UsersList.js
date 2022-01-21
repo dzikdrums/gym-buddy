@@ -21,10 +21,12 @@ const UsersList = () => {
 
   return (
     <Segment>
-      <FormField label={'login'} />
-      {usersList.map((user, index) => (
-        <UsersListItem key={index} userData={user} />
-      ))}
+      <div>
+        <FormField label={'login'} />
+        {usersList.map((user, index) => (
+          <UsersListItem key={index} userData={user} />
+        ))}
+      </div>
     </Segment>
   );
 };
