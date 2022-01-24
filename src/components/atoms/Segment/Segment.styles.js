@@ -6,7 +6,6 @@ export const StyledSegment = styled.div`
   display: flex;
   justify-content: center;
   border-radius: 10px;
-  padding: 24px 24px 30px 49px;
+  padding: 24px;
   width: 100%;
-  margin: 20px;
 `;

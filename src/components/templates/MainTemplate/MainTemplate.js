@@ -8,6 +8,10 @@ const StyledMainTemplate = styled.div`
   grid-template-columns: 150px 1fr;
   overflow-x: scroll;
   height: 100vh;
+
+  .content {
+    margin: 38px 60px;
+  }
 `;
 
 const MainTemplate = ({ children }) => {
@@ -16,7 +20,7 @@ const MainTemplate = ({ children }) => {
       <Navigation />
       <div>
         <SearchBar />
-        {children}
+        <div className={'content'}>{children}</div>
       </div>
     </StyledMainTemplate>
   );
