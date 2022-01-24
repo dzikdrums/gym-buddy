@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Heading } from '../../atoms/Heading/Heading';
 import UsersListItem from '../../molecules/UsersListItem/UsersListItem';
-import { users } from '../../../data/users';
+import { UserContext } from '../../../contexts/UsersContext';
 
 const StyledUsersList = styled.div`
   display: flex;
@@ -10,25 +10,13 @@ const StyledUsersList = styled.div`
 `;
 
 const UsersList = () => {
-  const [usersList, setUsersList] = useState([]);
-
-  const mockApiCall = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(users), 1000);
-    });
-  };
-
-  useEffect(() => {
-    mockApiCall().then((res) => {
-      setUsersList(res);
-    });
-  }, []);
+  const { users, deleteUser } = useContext(UserContext);
 
   return (
     <StyledUsersList>
       <Heading>Students list</Heading>
-      {usersList.map((user, index) => (
-        <UsersListItem key={index} userData={user} />
+      {users.map((user) => (
+        <UsersListItem key={user.id} userData={user} deleteUser={deleteUser} />
       ))}
     </StyledUsersList>
   );

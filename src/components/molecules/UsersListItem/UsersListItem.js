@@ -4,19 +4,21 @@ import IconButton from '../../atoms/Buttons/IconButton/IconButton';
 import { ReactComponent as DeleteIcon } from 'assets/delete-icon.svg';
 import { StyledUsersListItem } from './UsersListItem.styles';
 
-const UsersListItem = ({ userData: { name, average, attendance } }) => (
-  <>
+const UsersListItem = ({ userData: { id, name, average, attendance }, deleteUser }) => {
+  return (
     <StyledUsersListItem key={name}>
-      <AverageNumber average={average} />
-      <div className={'user-details'}>
-        <p className={'name'}>{name}</p>
-        <p className={'attendance'}>attendance: {attendance}%</p>
+      <div className={'user-details-wrapper'}>
+        <AverageNumber average={average} />
+        <div className={'user-details'}>
+          <p className={'name'}>{name}</p>
+          <p className={'attendance'}>attendance: {attendance}%</p>
+        </div>
       </div>
-      <IconButton isSecondary>
+      <IconButton isSecondary onClick={() => deleteUser(id)}>
         <DeleteIcon />
       </IconButton>
     </StyledUsersListItem>
-  </>
-);
+  );
+};
 
 export default UsersListItem;

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import FormField from '../components/atoms/FormField/FormField';
 import Segment from '../components/atoms/Segment/Segment';
 import Button from '../components/atoms/Buttons/Button/Button';
 import styled from 'styled-components';
+import { UserContext } from '../contexts/UsersContext';
 
 const StyledAddUserForm = styled.div`
   display: flex;
@@ -11,25 +12,28 @@ const StyledAddUserForm = styled.div`
   width: 50%;
 `;
 
+const initialValues = {
+  name: '',
+  attendance: '',
+  average: '',
+};
+
 const AddUser = () => {
-  const [formValues, setFormValues] = useState({
-    name: '',
-    attendance: '',
-    average: '',
-  });
+  const { addUser } = useContext(UserContext);
+
+  const [formValues, setFormValues] = useState(initialValues);
 
   const handleInputChange = (e) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
-
-    console.log(formValues);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('heheszki');
+    addUser(formValues);
+    setFormValues(initialValues);
   };
 
   return (

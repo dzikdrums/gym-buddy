@@ -7,6 +7,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import AddUser from './AddUser';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainTemplate from '../components/templates/MainTemplate/MainTemplate';
+import UserContextProvider from '../contexts/UsersContext';
 
 const Root = () => (
   <HelmetProvider>
@@ -18,14 +19,16 @@ const Root = () => (
       </Helmet>
       <Router>
         <GlobalStyle />
-        <MainTemplate>
+        <UserContextProvider>
           <StyledRoot>
-            <Routes>
-              <Route path={'addUser'} element={<AddUser />} />
-              <Route path={'/'} element={<Dashboard />} />
-            </Routes>
+            <MainTemplate>
+              <Routes>
+                <Route path={'addUser'} element={<AddUser />} />
+                <Route path={'/'} element={<Dashboard />} />
+              </Routes>
+            </MainTemplate>
           </StyledRoot>
-        </MainTemplate>
+        </UserContextProvider>
       </Router>
     </ThemeProvider>
   </HelmetProvider>
