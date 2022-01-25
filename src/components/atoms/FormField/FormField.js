@@ -8,11 +8,11 @@ const StyledFormField = styled.div`
   flex-direction: column;
 `;
 
-const FormField = ({ label, name, type = 'text', id, setValue, ...props }) => {
+const FormField = ({ label, name, type = 'text', id, value, setValue, ...props }) => {
   return (
     <StyledFormField>
       <Label htmlFor={name}>{label}</Label>
-      <Input id={name} name={name} {...props} />
+      <Input id={name} name={name} data-testid={label} defaultValue={value} onChange={setValue} {...props} />
     </StyledFormField>
   );
 };

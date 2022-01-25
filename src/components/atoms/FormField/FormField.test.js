@@ -1,10 +1,10 @@
 import FormField from './FormField';
 import { fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { renderWithThemeProvider } from '../../../helpers/renderWithThemeProvider';
+import { renderWithProviders } from '../../../helpers/renderWithProviders';
 
 describe('FormField', () => {
-  renderWithThemeProvider(<FormField placeholder={'name'} />);
+  renderWithProviders(<FormField placeholder={'name'} />);
 
   it('should change value', () => {
     const input = screen.getByPlaceholderText('name');

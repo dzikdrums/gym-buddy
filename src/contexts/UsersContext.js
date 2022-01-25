@@ -20,7 +20,7 @@ const UserContextProvider = ({ children }) => {
   };
 
   const addUser = (newUser) => {
-    setUsers((prevUsers) => [...prevUsers, newUser]);
+    setUsers((prevUsers) => [...prevUsers, { id: prevUsers.length + 1, ...newUser }]);
   };
 
   const value = { users, deleteUser, addUser };

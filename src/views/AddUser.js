@@ -42,7 +42,7 @@ const AddUser = () => {
         <FormField label={'name'} name={'name'} value={formValues.name} setValue={handleInputChange} />
         <FormField label={'attendance'} name={'attendance'} value={formValues.attendance} setValue={handleInputChange} />
         <FormField label={'average'} name={'average'} value={formValues.average} setValue={handleInputChange} />
-        <Button type={'submit'}>Sign in</Button>
+        <Button type={'submit'}>Add user</Button>
       </StyledAddUserForm>
     </Segment>
   );
