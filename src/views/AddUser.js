@@ -1,17 +1,10 @@
-import React, { useContext, useEffect, useReducer, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import FormField from '../components/atoms/FormField/FormField';
 import Segment from '../components/atoms/Segment/Segment';
 import Button from '../components/atoms/Buttons/Button/Button';
-import styled from 'styled-components';
 import { UserContext } from '../contexts/UsersContext';
-import useWindowSize from '../hooks/useWindowSize';
-
-const StyledAddUserForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-`;
+import useForm from '../hooks/useForm';
+import { StyledAddUserForm } from './AddUser.styles';
 
 const initialState = {
   name: '',
@@ -21,38 +14,10 @@ const initialState = {
   error: '',
 };
 
-const reducer = (state, action) => {
-  console.log(action);
-  switch (action.type) {
-    case 'CHANGE INPUT':
-      return {
-        ...state,
-        [action.name]: action.value,
-      };
-    case 'CLEAR_FORM':
-      return {
-        ...initialState,
-      };
-    case 'TOGGLE_CHECKBOX':
-      return {
-        ...initialState,
-        consent: !state.consent,
-      };
-    case 'THROW ERROR':
-      return {
-        ...initialState,
-        error: action.error,
-      };
-    default:
-      return state;
-  }
-};
-
 const AddUser = () => {
   const { addUser } = useContext(UserContext);
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { state, handleCheckboxChange, handleInputChange, handleClearForm, handleThrowError } = useForm(initialState);
   const nameRef = useRef(null);
-  const windowSize = useWindowSize();
 
   useEffect(() => {
     if (nameRef.current) {
@@ -60,23 +25,13 @@ const AddUser = () => {
     }
   });
 
-  console.log(windowSize);
-
-  const handleInputChange = (e) => {
-    dispatch({ type: 'CHANGE_INPUT', value: e.target.value });
-  };
-
-  const handleCheckboxChange = () => {
-    dispatch({ type: 'TOGGLE_CHECKBOX' });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (state.consent) {
       addUser(state);
-      dispatch({ type: 'CLEAR_FORM' });
+      handleClearForm(initialState);
     } else {
-      dispatch({ type: 'THROW ERROR', error: 'Consent must be given to proceed' });
+      handleThrowError('Consent is needed to submit!');
     }
   };
 
