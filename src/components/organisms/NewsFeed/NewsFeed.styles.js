@@ -1,50 +1,40 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
-export const StyledNavigation = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 20px;
-  border-right: ${({ theme }) => `1px solid ${theme.color.darkPurple}`};
-  align-items: flex-end;
-  grid-column: 1/2;
+export const StyledNewsFeed = styled.div`
+  border-left: ${({ theme }) => `1px solid ${theme.color.darkPurple}`};
+  grid-column: 3/4;
   grid-row: 1/3;
-
-  .logo {
-    background-color: ${({ theme }) => theme.color.darkGrey};
-    color: ${({ theme }) => theme.color.white};
-    width: 100%;
-    padding: 13px;
-    text-align: end;
-    margin-bottom: 45px;
-  }
+  padding: 31px 45px;
+  overflow-y: scroll;
 `;
 
-export const StyledLink = styled(NavLink)`
-  padding-right: 24px;
-  margin-bottom: 17px;
-  font-size: ${({ theme }) => theme.fontSize.m};
-  color: ${({ theme }) => theme.color.darkGrey};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  position: relative;
-
-  ::after {
-    content: '';
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: opacity 0.4s ease-in-out;
-    background-color: ${({ theme }) => theme.color.darkPurple};
-    width: 15px;
-    height: 3px;
-  }
-
-  &.active {
-    ::after {
-      opacity: 1;
+export const StyledNewsCard = styled.div`
+  ${({ theme }) => css`
+    .title {
+      font-size: ${theme.fontSize.l};
+      font-weight: ${theme.fontWeight.bold};
     }
-  }
+
+    .subtitle {
+      font-size: ${theme.fontSize.m};
+      margin-bottom: 12px;
+    }
+
+    .content-wrapper {
+      display: flex;
+      align-items: start;
+
+      img {
+        max-width: 150px;
+        object-fit: contain;
+        margin-left: 10px;
+      }
+    }
+
+    .content {
+      font-size: ${theme.fontSize.s};
+      line-height: 16px;
+      margin-bottom: 37px;
+    }
+  `}
 `;

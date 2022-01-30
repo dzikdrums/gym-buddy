@@ -23,7 +23,7 @@ const AddUser = () => {
     if (nameRef.current) {
       nameRef.current.focus();
     }
-  });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const AddUser = () => {
         <FormField inputReference={nameRef} label={'name'} name={'name'} value={state.name} setValue={handleInputChange} />
         <FormField label={'attendance'} name={'attendance'} value={state.attendance} setValue={handleInputChange} />
         <FormField label={'average'} name={'average'} value={state.average} setValue={handleInputChange} />
-        <input type={'checkbox'} name={'consent'} value={state.consent} onClick={handleCheckboxChange} />
+        <input type={'checkbox'} name={'consent'} data-testid={'consent'} value={state.consent} onClick={handleCheckboxChange} />
         {state.error && <p>{state.error}</p>}
         <Button type={'submit'}>Add user</Button>
       </StyledAddUserForm>

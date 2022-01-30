@@ -1,13 +1,30 @@
 import styled from 'styled-components';
 
 export const StyledSearchBar = styled.div`
-  background-color: ${({ isSecondary }) => (isSecondary ? '#c0c7d6' : '#8FCB81')};
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 23px;
-  height: 23px;
-  border-radius: 50px;
-  color: ${({ theme }) => theme.color.white};
-  margin-left: 14px;
+  padding: 24px 38px 9px;
+  border-bottom: ${({ theme }) => `1px solid ${theme.color.darkPurple}`};
+  grid-column: 2/3;
+  grid-row: 1/2;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+
+    span {
+      white-space: nowrap;
+    }
+
+    span:last-of-type {
+      font-weight: ${({ theme }) => theme.fontWeight.bold};
+      text-align: end;
+    }
+  }
+
+  input {
+    width: 100%;
+    max-width: 350px;
+    border: none;
+  }
 `;

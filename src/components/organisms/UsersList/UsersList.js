@@ -1,13 +1,8 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
 import { Heading } from '../../atoms/Heading/Heading';
 import UsersListItem from '../../molecules/UsersListItem/UsersListItem';
 import { UserContext } from '../../../contexts/UsersContext';
-
-const StyledUsersList = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { StyledUsersList } from './UsersList.styles';
 
 const UsersList = () => {
   const { users, deleteUser } = useContext(UserContext);
