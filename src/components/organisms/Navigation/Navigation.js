@@ -7,7 +7,7 @@ const Navigation = () => {
       <div className={'logo'}>
         Study <br /> buddy
       </div>
-      <StyledLink to={'/'}>Students List</StyledLink>
+      <StyledLink to={'/group'}>Students List</StyledLink>
       <StyledLink to={'/addUser'}>Add Student</StyledLink>
     </StyledNavigation>
   );

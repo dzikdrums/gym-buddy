@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import FormField from '../components/atoms/FormField/FormField';
 import Segment from '../components/atoms/Segment/Segment';
 import Button from '../components/atoms/Buttons/Button/Button';
-import { UserContext } from '../contexts/UsersContext';
+import { UserContext } from '../contexts/UsersContextProvider';
 import useForm from '../hooks/useForm';
 import { StyledAddUserForm } from './AddUser.styles';
 

@@ -17,6 +17,14 @@ const StyledMainTemplate = styled.div`
     margin: 38px 60px;
     grid-column: 2/3;
     grid-row: 2/3;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .main_template_content::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
   }
 `;
 
